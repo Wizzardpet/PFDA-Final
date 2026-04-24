@@ -1,5 +1,10 @@
 #define characters and their attributes (health, attack power, etc.)
 
+import images
+
+
+
+
 class Fighter():
     def __init__(self, name, health, attack_power):
         self.name = name
