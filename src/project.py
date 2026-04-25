@@ -62,8 +62,8 @@ def main():
             title_screen.update()
             title_screen.draw(screen)
 
-        if title_screen.finished:
-            game_state = "game"
+            if title_screen.finished:
+                game_state = "game"
 
         elif game_state == "game":
             screen.fill((50,50,100))
