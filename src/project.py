@@ -14,7 +14,7 @@ Width, Height = 800, 600
 screen = pygame.display.set_mode((Width, Height))
 pygame.display.set_caption("Side Scroller")
 
-title_font = pygame.font.SysFont("Arial", 64)
+title_font = pygame.font.Font('fonts/PixelDraft-Regular.ttf', 64)
 menu_font = pygame.font.SysFont("Arial", 32)
 
 class TitleScreen:
