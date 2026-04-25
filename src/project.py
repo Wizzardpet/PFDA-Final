@@ -52,13 +52,18 @@ def main():
     while True:
         events = pygame.event.get()
 
+        for event in events:
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+
         if game_state == "title":
             title_screen.handle_events(events)
             title_screen.update()
             title_screen.draw(screen)
 
-            if title_screen.finished:
-                game_state = "game"
+        if title_screen.finished:
+            game_state = "game"
 
         elif game_state == "game":
             screen.fill((50,50,100))
