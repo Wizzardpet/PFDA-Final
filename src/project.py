@@ -22,3 +22,9 @@ class TitleScreen:
         self.title_text = title_font.render("Brains and Brownies", True, (255,255,255))
         self.prompt_text = menu_font.render("Press any key to start", True, (200,200,200))
         self.finished = False
+
+    def handle_events(self,events):
+        for event in events:
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.quit()
