@@ -27,4 +27,43 @@ class TitleScreen:
         for event in events:
             if event.type == pygame.QUIT:
                 pygame.quit()
-                sys.quit()
+                sys.exit()
+            if event.type == pygame.KEYDOWN:
+                self.finished = True
+
+    def update(self): #to add animations
+        pass
+
+    def draw(self, screen):
+        screen.fill((0,0,0)) #background color
+
+        title_rect = self.title_text.get_rect(center=(Width//2, Height//3))
+        prompt_rect = self.prompt_text.get_rect(center=(Width//2, Height//2))
+
+        screen.blit(self.title_text, title_rect)
+        screen.blit(self.prompt_text, prompt_rect)
+
+def main():
+    clock = pygame.time.Clock()
+    title_screen = TitleScreen()
+
+    game_state = "title"
+
+    while True:
+        events = pygame.event.get()
+
+        if game_state == "title":
+            title_screen.handle_events(events)
+            title_screen.update()
+            title_screen.draw(screen)
+
+            if title_screen.finished:
+                game_state = "game"
+
+        elif game_state == "game":
+            screen.fill((50,50,100))
+
+        pygame.display.flip()
+        clock.tick(60)
+
+main()
