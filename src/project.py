@@ -36,7 +36,7 @@ class TitleScreen:
         pass
 
     def draw(self, screen):
-        screen.blit(title_bg(0,0)) #background color
+        screen.blit(title_bg, (0,0)) #background color
 
         title_rect = self.title_text.get_rect(center=(Width//2, Height//3))
         prompt_rect = self.prompt_text.get_rect(center=(Width//2, Height//2))
