@@ -8,7 +8,7 @@ import pygame
 import sys
 
 pygame.init()
-title_bg = pygame.image.load('docs/assests/pfda_titlecard.png').convert()
+title_bg = pygame.image.load('docs/assets/pfda_titlecard.png').convert()
 #Making screen
 
 Width, Height = 800, 600
