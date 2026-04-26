@@ -8,11 +8,11 @@ import pygame
 import sys
 
 pygame.init()
-title_bg = pygame.image.load('docs/assets/pfda_titlecard.png').convert()
 #Making screen
 
 Width, Height = 800, 600
 screen = pygame.display.set_mode((Width, Height))
+title_bg = pygame.image.load('docs/assets/pfda_titlecard.png').convert()
 pygame.display.set_caption("Side Scroller")
 
 title_font = pygame.font.Font('docs/PixelDraft-Regular.ttf', 64)
