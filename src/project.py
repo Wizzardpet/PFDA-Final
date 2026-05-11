@@ -6,7 +6,7 @@
 # Exit game
 import pygame
 import sys
-import player
+from player import Player
 
 pygame.init()
 #Making screen
@@ -49,7 +49,7 @@ def main():
     clock = pygame.time.Clock()
     title_screen = TitleScreen()
 
-    Player = player()
+    player = Player()
 
 
     game_state = "title"
