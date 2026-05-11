@@ -82,6 +82,24 @@ def main():
 
             player.draw(screen)
 
+            #spawn zombies randomly
+            if len(zombies) == 0:
+                spawn_wave()
+
+            for zombie in zombies:
+                zombie.move()
+                zombie.attack_player(player)
+
+            if player.attacking and zombie.rect.colliderect(player.rect):
+                zombie.take_damage(10)
+
+            zombie.draw(screen)
+
+            #remove dead zombies
+            zombies = [z for z in zombies if z.alive]
+            
+            player.draw(screen)
+
         
 
         pygame.display.flip()
