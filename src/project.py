@@ -52,7 +52,7 @@ zombies = []
 def spawn_wave():
     count = random.randint(1, 3)
 
-    for range(count):
+    for i in range(count):
         x = 800 + i * 100
         y = 400
         zombies.append(Zombie(x,y))
