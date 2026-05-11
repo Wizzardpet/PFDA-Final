@@ -6,6 +6,7 @@
 # Exit game
 import pygame
 import sys
+import player
 
 pygame.init()
 #Making screen
@@ -48,6 +49,9 @@ def main():
     clock = pygame.time.Clock()
     title_screen = TitleScreen()
 
+    Player = player()
+
+
     game_state = "title"
 
     while True:
@@ -68,6 +72,15 @@ def main():
 
         elif game_state == "game":
             screen.fill((50,50,100))
+
+            keys = pygame.key.get_pressed()
+
+            player.move(keys)
+            player.attack(keys)
+
+            player.draw(screen)
+
+        
 
         pygame.display.flip()
         clock.tick(60)
