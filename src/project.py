@@ -7,7 +7,7 @@
 import pygame
 import sys
 from player import Player
-from zombies import Zombies
+from zombies import zombie
 import random
 
 pygame.init()
@@ -55,7 +55,7 @@ def spawn_wave():
     for i in range(count):
         x = 800 + i * 100
         y = 400
-        zombies.append(Zombie(x,y))
+        zombies.append(zombie(x,y))
 
 def main():
     clock = pygame.time.Clock()
