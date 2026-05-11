@@ -47,6 +47,16 @@ class TitleScreen:
         screen.blit(self.title_text, title_rect)
         screen.blit(self.prompt_text, prompt_rect)
 
+zombies = []
+
+def spawn_wave():
+    count = random.randint(1, 3)
+
+    for range(count):
+        x = 800 + i * 100
+        y = 400
+        zombies.append(Zombie(x,y))
+
 def main():
     clock = pygame.time.Clock()
     title_screen = TitleScreen()
