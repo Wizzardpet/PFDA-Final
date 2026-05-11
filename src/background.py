@@ -1,9 +1,4 @@
 import pygame
-import sys
 
-pygame.init()
-
-
-
-
-class title_card():
+class ScrollingBackground:
+    def __init__(self, image_path, width, height)
