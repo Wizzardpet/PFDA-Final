@@ -19,7 +19,7 @@ class Player:
         self.attack_cooldown = 0
 
         #Load sprite
-        self.image = pygame.image.load('docs/player.png').convert_alpha()
+        self.image = pygame.image.load('docs/assets/player.png').convert_alpha()
 
         #rectangle for collision
         self.rect = self.image.get_rect(topleft=(self.x, self.y))
