@@ -7,6 +7,8 @@
 import pygame
 import sys
 from player import Player
+from zombies import Zombies
+import random
 
 pygame.init()
 #Making screen
