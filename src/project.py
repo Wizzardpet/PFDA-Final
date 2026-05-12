@@ -21,6 +21,8 @@ pygame.display.set_caption("Side Scroller")
 title_font = pygame.font.Font('docs/PixelDraft-Regular.ttf', 64)
 menu_font = pygame.font.SysFont("Arial", 32)
 
+zombies = []
+
 class TitleScreen:
     def __init__(self):
         self.title_text = title_font.render("Brains and Brownies", True, (255,255,255))
@@ -61,8 +63,6 @@ def main():
     title_screen = TitleScreen()
 
     player = Player()
-
-    zombies = []
 
 
     game_state = "title"
