@@ -125,8 +125,10 @@ def main():
             player.move(keys)
             player.attack(keys)
 
-            if not zombies and zombies_killed < required_kills:
+            spawn_timer += 1
+            if spawn_timer >= spawn_delay and zombies_killed < required_kills:
                 spawn_wave()
+                spawn_timer = 0
 
             new_zombies = []
 
