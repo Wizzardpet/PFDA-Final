@@ -83,6 +83,9 @@ def main():
 
     player = Player()
 
+    win_screen = Winscreen()
+    game_over_screen = GameOverScreen()
+
     
     zombies_killed = 0
     required_kills = 18
@@ -110,6 +113,9 @@ def main():
             screen.fill((50, 50, 50)) #background color
 
             keys = pygame.key.get_pressed()
+
+            if player.health <=0:
+                game_state = "game_over"
 
             player.move(keys)
             player.attack(keys)
@@ -142,7 +148,25 @@ def main():
 
             player.draw(screen)
 
-        
+        elif game_state == "win":
+            win_screen.draw(screen)
+
+            keys = pygame.key.get_pressed()
+            if keys[pygame.K_r]:
+                game_state = "title"
+                zombies.clear()
+                zombies_killed = 0
+                player = Player()
+
+        elif game_state == "game_over":
+            game_over_screen.draw(screen)
+
+            keys = pygame.key.get_pressed()
+            if keys[pygame.K_r]:
+                game_state = "title"
+                zombies.clear()
+                zombies_killed = 0
+                player = Player()
 
         pygame.display.flip()
         clock.tick(60)
