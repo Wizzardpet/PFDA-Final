@@ -5,7 +5,7 @@ class Zombie:
         self.x = x
         self.y = y
 
-        self.speed = 5
+        self.speed = 3
         self.health = 30
         self.damage = 2
 
