@@ -97,6 +97,9 @@ def main():
     spawn_timer = 0
     spawn_delay = 180
 
+    flash_timer = 0
+    flash_duration = 10
+
 
     game_state = "title"
 
