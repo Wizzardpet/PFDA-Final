@@ -119,9 +119,13 @@ def main():
 
             keys = pygame.key.get_pressed()
 
-            if player.health <=0:
+            if player.health <= 0:
                 game_state = "game_over"
 
+            elif zombies_killed >= required_kills:
+                game_state = "win"
+
+        else:
             player.move(keys)
             player.attack(keys)
 
@@ -137,7 +141,7 @@ def main():
                 zombie.attack_player(player)
 
                 if player.attacking and zombie.rect.colliderect(player.rect):
-                    zombie.take_damage(3)
+                    zombie.take_damage(8)
 
                 if zombie.alive and zombie.x > -200:
                     new_zombies.append(zombie)
@@ -148,10 +152,6 @@ def main():
 
             zombies[:] = new_zombies
 
-            
-
-            if zombies_killed >= required_kills:
-                game_state = "win"
 
             player.draw(screen)
 
@@ -178,6 +178,8 @@ def main():
                 zombies.clear()
                 zombies_killed = 0
                 player = Player()
+
+            
 
         pygame.display.flip()
         clock.tick(60)
