@@ -6,7 +6,7 @@ class Zombie:
         self.y = y
 
         self.speed = 4
-        self.health = 30
+        self.health = 60
         self.damage = 2
         self.attack_cooldown = 0
 

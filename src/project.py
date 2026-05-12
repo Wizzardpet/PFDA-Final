@@ -137,7 +137,7 @@ def main():
                 zombie.attack_player(player)
 
                 if player.attacking and zombie.rect.colliderect(player.rect):
-                    zombie.take_damage(10)
+                    zombie.take_damage(3)
 
                 if zombie.alive and zombie.x > -200:
                     new_zombies.append(zombie)

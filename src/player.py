@@ -12,7 +12,7 @@ class Player:
         self.speed = 5
 
         #health
-        self.health = 40
+        self.health = 100
 
         #attack settings
         self.attacking = False
