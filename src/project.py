@@ -6,6 +6,7 @@
 # Exit game
 import pygame
 import sys
+from background import Background
 from player import Player
 from zombies import Zombie
 import random
@@ -84,13 +85,14 @@ def main():
     title_screen = TitleScreen()
 
     player = Player()
+    game_bg = Background('docs/assets/background.png', Width, Height)
 
     win_screen = Winscreen()
     game_over_screen = GameOverScreen()
 
     
     zombies_killed = 0
-    required_kills = 18
+    required_kills = 10
 
     spawn_timer = 0
     spawn_delay = 180
@@ -115,8 +117,7 @@ def main():
                 game_state = "game"
 
         elif game_state == "game":
-            screen.fill((50, 50, 50))
-
+            game_bg.draw(screen)
             keys = pygame.key.get_pressed()
 
             if player.health <= 0:
@@ -151,7 +152,8 @@ def main():
 
                 zombies[:] = new_zombies
 
-            player.draw(screen)
+                game_bg.draw(screen)
+                player.draw(screen)
 
         elif game_state == "win":
             screen.blit(win_bg, (0, 0))
