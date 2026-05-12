@@ -92,6 +92,9 @@ def main():
     zombies_killed = 0
     required_kills = 18
 
+    spawn_timer = 0
+    spawn_delay = 180
+
 
     game_state = "title"
 
