@@ -16,6 +16,8 @@ pygame.init()
 Width, Height = 800, 600
 screen = pygame.display.set_mode((Width, Height))
 title_bg = pygame.image.load('docs/assets/pfda_titlecard.png').convert()
+win_bg = pygame.image.load('docs/assets/pfda_titlecard.png').convert()
+lose_bg = pygame.image.load('docs/assets/pfda_titlecard.png').convert()
 pygame.display.set_caption("Side Scroller")
 
 title_font = pygame.font.Font('docs/PixelDraft-Regular.ttf', 64)
@@ -149,6 +151,8 @@ def main():
             player.draw(screen)
 
         elif game_state == "win":
+            screen.blit(win_bg, (0,0))
+            
             win_screen.draw(screen)
 
             keys = pygame.key.get_pressed()
@@ -159,6 +163,8 @@ def main():
                 player = Player()
 
         elif game_state == "game_over":
+            screen.blit(lose_bg, (0,0))
+            
             game_over_screen.draw(screen)
 
             keys = pygame.key.get_pressed()
