@@ -57,7 +57,7 @@ class Winscreen:
         self.prompt = menu_font.render("Press R to restart", True, (200,200,200))
 
     def draw(self, screen):
-        screen.fill((0,0,0))
+        
         screen.blit(self.text, (Width//2 -150, Height//3))
         screen.blit(self.prompt, (Width//2 -150, Height//2))
 
@@ -67,7 +67,7 @@ class GameOverScreen:
         self.prompt = menu_font.render("Press R to restart", True, (200,200,200))
 
     def draw(self, screen):
-        screen.fill((20,0,0))
+        
         screen.blit(self.text, (Width//2 -180, Height//3))
         screen.blit(self.prompt, (Width//2 -130, Height//2))
 
