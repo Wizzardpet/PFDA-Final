@@ -49,4 +49,4 @@ class Player:
 
     def draw(self,screen):
 
-        screen.blit(self.image, (self.x, self.y))
+        screen.blit(self.image, self.rect)

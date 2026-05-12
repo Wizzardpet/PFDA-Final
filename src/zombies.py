@@ -31,7 +31,7 @@ class Zombie:
 
     def draw(self, screen):
         if self.alive:
-            screen.blit(self.image, (self.x, self.y))
+            screen.blit(self.image, self.rect)
 
 
         
