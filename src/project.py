@@ -122,9 +122,8 @@ def main():
             if player.health <= 0:
                 game_state = "game_over"
 
-            elif zombies_killed >= required_kills:
+            elif zombies_killed >= required_kills and player.health > 0:
                 game_state = "win"
-
             else:
                 player.move(keys)
                 player.attack(keys)

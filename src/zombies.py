@@ -7,7 +7,7 @@ class Zombie:
 
         self.speed = 4
         self.health = 60
-        self.damage = 2
+        self.damage = 5
         self.attack_cooldown = 0
 
         self.image = pygame.image.load('docs/assets/zombie.png').convert_alpha()
