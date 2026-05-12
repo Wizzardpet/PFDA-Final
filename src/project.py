@@ -49,6 +49,25 @@ class TitleScreen:
         screen.blit(self.title_text, title_rect)
         screen.blit(self.prompt_text, prompt_rect)
 
+class Winscreen:
+    def __init__(self):
+        self.text = title_font.render("You Win!", True, (255,255,255))
+        self.prompt = menu_font.render("Press R to restart", True, (200,200,200))
+
+    def draw(self, screen):
+        screen.fill((0,0,0))
+        screen.blit(self.text, (Width//2 -150, Height//3))
+        screen.blit(self.prompt, (Width//2 -150, Height//2))
+
+class GameOverScreen:
+    def __init__(self):
+        self.text = title_font.render("You Died", True, (255,255,255))
+        self.prompt = menu_font.render("Press R to restart", True, (200,200,200))
+
+    def draw(self, screen):
+        screen.fill((20,0,0))
+        screen.blit(self.text, (Width//2 -180, Height//3))
+        screen.blit(self.prompt, (Width//2 -130, Height//2))
 
 def spawn_wave():
     count = random.randint(1, 3)
