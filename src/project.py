@@ -64,6 +64,10 @@ def main():
 
     player = Player()
 
+    
+    zombies_killed = 0
+    required_kills = 18
+
 
     game_state = "title"
 
@@ -84,18 +88,17 @@ def main():
                 game_state = "game"
 
         elif game_state == "game":
-            screen.fill((50,50,100))
+            screen.fill((50, 50, 50)) #background color
 
             keys = pygame.key.get_pressed()
 
             player.move(keys)
             player.attack(keys)
 
-            player.draw(screen)
-
-            #spawn zombies randomly
-            if len(zombies) == 0:
+            if not zombies and zombies_killed < required_kills:
                 spawn_wave()
+
+            new_zombies = []
 
             for zombie in zombies:
                 zombie.move()
@@ -104,11 +107,19 @@ def main():
                 if player.attacking and zombie.rect.colliderect(player.rect):
                     zombie.take_damage(10)
 
-            zombie.draw(screen)
+                if zombie.alive:
+                    new_zombies.append(zombie)
+                else:
+                    zombies_killed += 1
 
-            #remove dead zombies
-            zombies[:] = [z for z in zombies if z.alive]
+                zombie.draw(screen)
+
+            zombies[:] = new_zombies
+
             
+
+            if zombies_killed >= required_kills:
+                game_state = "win"
 
             player.draw(screen)
 
