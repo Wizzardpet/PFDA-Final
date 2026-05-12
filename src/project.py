@@ -115,7 +115,7 @@ def main():
                 game_state = "game"
 
         elif game_state == "game":
-            screen.fill((50, 50, 50)) #background color
+            screen.fill((50, 50, 50))
 
             keys = pygame.key.get_pressed()
 
@@ -125,39 +125,37 @@ def main():
             elif zombies_killed >= required_kills:
                 game_state = "win"
 
-        else:
-            player.move(keys)
-            player.attack(keys)
+            else:
+                player.move(keys)
+                player.attack(keys)
 
-            spawn_timer += 1
-            if spawn_timer >= spawn_delay and zombies_killed < required_kills:
-                spawn_wave()
-                spawn_timer = 0
+                spawn_timer += 1
+                if spawn_timer >= spawn_delay:
+                    spawn_wave()
+                    spawn_timer = 0
 
-            new_zombies = []
+                new_zombies = []
 
-            for zombie in zombies:
-                zombie.move()
-                zombie.attack_player(player)
+                for zombie in zombies:
+                    zombie.move()
+                    zombie.attack_player(player)
 
-                if player.attacking and zombie.rect.colliderect(player.rect):
-                    zombie.take_damage(8)
+                    if player.attacking and zombie.rect.colliderect(player.rect):
+                        zombie.take_damage(8)
 
-                if zombie.alive and zombie.x > -200:
-                    new_zombies.append(zombie)
-                else:
-                    zombies_killed += 1
+                    if zombie.alive and zombie.x > -200:
+                        new_zombies.append(zombie)
+                    else:
+                        zombies_killed += 1
 
-                zombie.draw(screen)
+                    zombie.draw(screen)
 
-            zombies[:] = new_zombies
-
+                zombies[:] = new_zombies
 
             player.draw(screen)
 
         elif game_state == "win":
-            screen.blit(win_bg, (0,0))
-            
+            screen.blit(win_bg, (0, 0))
             win_screen.draw(screen)
 
             keys = pygame.key.get_pressed()
@@ -166,10 +164,10 @@ def main():
                 zombies.clear()
                 zombies_killed = 0
                 player = Player()
+                spawn_timer = 0
 
         elif game_state == "game_over":
-            screen.blit(lose_bg, (0,0))
-            
+            screen.blit(lose_bg, (0, 0))
             game_over_screen.draw(screen)
 
             keys = pygame.key.get_pressed()
@@ -178,8 +176,7 @@ def main():
                 zombies.clear()
                 zombies_killed = 0
                 player = Player()
-
-            
+                spawn_timer = 0
 
         pygame.display.flip()
         clock.tick(60)

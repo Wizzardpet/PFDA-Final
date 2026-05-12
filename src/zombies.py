@@ -15,6 +15,7 @@ class Zombie:
         self.rect.midbottom = (self.x, self.y)
 
         self.alive = True
+        self.hit_cooldown = 0
 
     def move(self):
         self.x -= self.speed
