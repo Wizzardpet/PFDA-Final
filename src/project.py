@@ -97,6 +97,7 @@ def main():
     spawn_timer = 0
     spawn_delay = 180
 
+    
     flash_timer = 0
     flash_duration = 10
 
@@ -129,7 +130,7 @@ def main():
                 game_state = "win"
 
             else:
-                # --- UPDATE ---
+                
                 player.move(keys)
                 player.attack(keys)
 
