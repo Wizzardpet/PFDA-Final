@@ -11,7 +11,7 @@ class Zombie:
 
         self.image = pygame.image.load('docs/assets/zombie.png').convert_alpha()
         self.rect = self.image.get_rect()
-        self.rect.bottomleft = (self.x, self.y)
+        self.rect.midbottom = (self.x, self.y)
 
         self.alive = True
 
@@ -30,8 +30,7 @@ class Zombie:
             player.health -= self.damage
 
     def draw(self, screen):
-        if self.alive:
-            screen.blit(self.image, self.rect)
+        screen.blit(self.image, self.rect)
 
 
         

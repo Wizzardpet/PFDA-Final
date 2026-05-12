@@ -25,9 +25,13 @@ class Player:
         self.rect = self.image.get_rect()
         self.rect.midbottom = (self.x, self.y)
 
-    def move(self,keys):
+    def move(self, keys):
         if keys[pygame.K_a]:
-            self.x -=self.speed
+            self.x -= self.speed
+        if keys[pygame.K_d]:
+            self.x += self.speed
+
+        self.rect.midbottom = (self.x, self.y)
 
         if keys[pygame.K_d]:
             self.x +=self.speed
@@ -47,6 +51,5 @@ class Player:
         if self.attacking and self.attack_cooldown <= 15: #attack active for 15 frames
             self.attacking = False
 
-    def draw(self,screen):
-
+    def draw(self, screen):
         screen.blit(self.image, self.rect)
