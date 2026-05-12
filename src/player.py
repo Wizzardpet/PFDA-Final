@@ -22,7 +22,8 @@ class Player:
         self.image = pygame.image.load('docs/assets/player.png').convert_alpha()
 
         #rectangle for collision
-        self.rect = self.image.get_rect(topleft=(self.x, self.y))
+        self.rect = self.image.get_rect()
+        self.rect.midbottom = (self.x, self.y)
 
     def move(self,keys):
         if keys[pygame.K_a]:
@@ -32,7 +33,7 @@ class Player:
             self.x +=self.speed
 
         #update collision rectangle
-        self.rect.topleft = (self.x, self.y)
+        self.rect.midbottom = (self.x, self.y)
 
     def attack(self,keys):
 

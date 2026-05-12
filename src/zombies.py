@@ -5,7 +5,7 @@ class Zombie:
         self.x = x
         self.y = y
 
-        self.speed = 1
+        self.speed = 5
         self.health = 30
         self.damage = 2
 
@@ -17,7 +17,7 @@ class Zombie:
 
     def move(self):
         self.x -= self.speed
-        self.rect.bottomleft = (self.x, self.y)
+        self.rect.midbottom = (self.x, self.y)
 
     def take_damage(self, amount):
         self.health -= amount
