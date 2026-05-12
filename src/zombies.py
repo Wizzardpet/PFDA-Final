@@ -10,13 +10,14 @@ class Zombie:
         self.damage = 2
 
         self.image = pygame.image.load('docs/assets/zombie.png').convert_alpha()
-        self.rect = self.image.get_rect(topleft=(self.x, self.y))
+        self.rect = self.image.get_rect()
+        self.rect.bottomleft = (self.x, self.y)
 
         self.alive = True
 
     def move(self):
         self.x -= self.speed
-        self.rect.topleft = (self.x, self.y)
+        self.rect.bottomleft = (self.x, self.y)
 
     def take_damage(self, amount):
         self.health -= amount
