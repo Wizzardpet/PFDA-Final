@@ -1,7 +1,7 @@
 import pygame
 
-class zombie:
-    def __init__(self):
+class Zombie:
+    def __init__(self, x, y):
         self.x = x
         self.y = y
 

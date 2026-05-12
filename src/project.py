@@ -7,7 +7,7 @@
 import pygame
 import sys
 from player import Player
-from zombies import zombie
+from zombies import Zombie
 import random
 
 pygame.init()
@@ -47,7 +47,6 @@ class TitleScreen:
         screen.blit(self.title_text, title_rect)
         screen.blit(self.prompt_text, prompt_rect)
 
-zombies = []
 
 def spawn_wave():
     count = random.randint(1, 3)
@@ -55,13 +54,15 @@ def spawn_wave():
     for i in range(count):
         x = 800 + i * 100
         y = 400
-        zombies.append(zombie(x,y))
+        zombies.append(Zombie(x,y))
 
 def main():
     clock = pygame.time.Clock()
     title_screen = TitleScreen()
 
     player = Player()
+
+    zombies = []
 
 
     game_state = "title"
@@ -100,14 +101,15 @@ def main():
                 zombie.move()
                 zombie.attack_player(player)
 
-            if player.attacking and zombie.rect.colliderect(player.rect):
-                zombie.take_damage(10)
+                if player.attacking and zombie.rect.colliderect(player.rect):
+                    zombie.take_damage(10)
 
             zombie.draw(screen)
 
             #remove dead zombies
-            zombies = [z for z in zombies if z.alive]
+            zombies[:] = [z for z in zombies if z.alive]
             
+
             player.draw(screen)
 
         
