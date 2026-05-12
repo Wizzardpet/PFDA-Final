@@ -134,6 +134,14 @@ def main():
                 player.move(keys)
                 player.attack(keys)
 
+                # GAME OVER FIRST (highest priority)
+                if player.health <= 0:
+                    game_state = "game_over"
+                    return
+
+                # WIN second
+                if zombies_killed >= required_kills and player.health > 0:
+                    game_state = "win"
                 spawn_timer += 1
                 if spawn_timer >= spawn_delay:
                     spawn_wave()
