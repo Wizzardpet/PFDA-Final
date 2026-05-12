@@ -68,7 +68,7 @@ class GameOverScreen:
 
     def draw(self, screen):
         
-        screen.blit(self.text, (Width//2 -180, Height//3))
+        screen.blit(self.text, (Width//2 -130, Height//3))
         screen.blit(self.prompt, (Width//2 -130, Height//2))
 
 def spawn_wave():

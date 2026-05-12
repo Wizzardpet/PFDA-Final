@@ -8,6 +8,7 @@ class Zombie:
         self.speed = 3
         self.health = 30
         self.damage = 2
+        self.attack_cooldown = 0
 
         self.image = pygame.image.load('docs/assets/zombie.png').convert_alpha()
         self.rect = self.image.get_rect()
@@ -25,9 +26,14 @@ class Zombie:
         if self.health <= 0:
             self.alive = False
 
-    def attack_player(self,player):
+    def attack_player(self, player):
+        if self.attack_cooldown > 0:
+            self.attack_cooldown -= 1
+            return
+
         if self.rect.colliderect(player.rect):
             player.health -= self.damage
+            self.attack_cooldown = 60
 
     def draw(self, screen):
         screen.blit(self.image, self.rect)

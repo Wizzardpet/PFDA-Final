@@ -17,6 +17,7 @@ class Player:
         #attack settings
         self.attacking = False
         self.attack_cooldown = 0
+        self.hit_cooldown = 0
 
         #Load sprite
         self.image = pygame.image.load('docs/assets/player.png').convert_alpha()
@@ -39,6 +40,9 @@ class Player:
         #update collision rectangle
         self.rect.midbottom = (self.x, self.y)
 
+        if self.hit_cooldown > 0:
+            self.hit_cooldown -= 1
+
     def attack(self,keys):
 
         if keys[pygame.K_SPACE] and self.attack_cooldown == 0:
@@ -50,6 +54,11 @@ class Player:
 
         if self.attacking and self.attack_cooldown <= 15: #attack active for 15 frames
             self.attacking = False
+
+    def take_damage(self, amount):
+        if self.hit_cooldown == 0:
+            self.health -= amount
+            self.hit_cooldown = 60
 
     def draw(self, screen):
         screen.blit(self.image, self.rect)
